@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Button from "../../components/Button";
 import CustomTable from "../../components/Table";
 import { fetchAllUsers } from "../../store/slices/user";
 
@@ -83,7 +84,8 @@ const Users = () => {
             accessor: "viewuser",
             Cell: (data) => {
               return (
-                <button
+                <Button
+                  primary
                   onClick={() => {
                     navigate(`/users/${data?.row?.original?.id}`, {
                       state: data?.row?.original,
@@ -91,7 +93,7 @@ const Users = () => {
                   }}
                 >
                   View
-                </button>
+                </Button>
               );
             },
           },
@@ -100,13 +102,14 @@ const Users = () => {
             accessor: "postsaction",
             Cell: (data) => {
               return (
-                <button
+                <Button
+                  secondary
                   onClick={() =>
                     navigate(`/users/${data?.row?.original?.id}/posts`)
                   }
                 >
                   View
-                </button>
+                </Button>
               );
             },
           },
@@ -115,13 +118,13 @@ const Users = () => {
             accessor: "albumsaction",
             Cell: (data) => {
               return (
-                <button
+                <Button
                   onClick={() =>
                     navigate(`/users/${data?.row?.original?.id}/albums`)
                   }
                 >
                   View
-                </button>
+                </Button>
               );
             },
           },

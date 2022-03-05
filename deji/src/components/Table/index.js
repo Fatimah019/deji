@@ -1,5 +1,7 @@
 import React, { useMemo } from "react";
 import { useTable, usePagination } from "react-table";
+import Loader from "../Loader";
+import "./style.css";
 
 const CustomTable = ({
   columnsData,
@@ -29,7 +31,7 @@ const CustomTable = ({
   return (
     <>
       {loading ? (
-        <div>Loading</div>
+        <Loader visible={loading} />
       ) : (
         <>
           <table {...getTableProps}>

@@ -1,0 +1,19 @@
+.button {
+  padding: 4px 8px;
+  outline: none;
+  border-radius: 4px;
+  border: none;
+  background-color: grey;
+  color: #fff;
+  cursor: pointer;
+}
+
+.primary {
+  background-color: blue;
+  color: #fff;
+}
+
+.secondary {
+  background-color: black;
+  color: #fff;
+}

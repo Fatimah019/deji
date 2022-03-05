@@ -1,0 +1,22 @@
+table {
+  background-color: #fff;
+  border: 2px solid red;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 8px;
+  min-height: 900px;
+  overflow-y: auto;
+}
+
+thead {
+  text-align: left;
+  background-color: pink;
+}
+thead tr th,
+tbody tr td {
+  padding: 8px;
+}
+
+table ::-webkit-scrollbar {
+  visibility: hidden;
+}
