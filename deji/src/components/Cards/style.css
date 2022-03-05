@@ -1,0 +1,8 @@
+.card {
+  box-shadow: 2px 2px 8px grey;
+  padding: 4px;
+  border-radius: 4px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+}
