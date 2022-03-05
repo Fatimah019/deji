@@ -1,19 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import Button from "../../components/Button";
-import Loader from "../../components/Loader";
+/**
+ * @description Import needed libraries to display data on user post page
+ * @author By Deji Adebayo
+ */
+//Begin Import statement
+import React, { useEffect, useState } from "react"; //import useEffect from react libraries to fetch data and render it to the page
+import { useDispatch, useSelector } from "react-redux"; //import react-redux for managing the state
+import { useParams } from "react-router-dom"; //import use navigate from react router-dom for navigation purpose
+import Button from "../../components/Button"  //import the button from components;
+import Loader from "../../components/Loader"; //import loader from components to render loading spinner
 import {
   fetchPostComments,
   postCommentsSelector,
-} from "../../store/slices/comments";
-import Pagination from "../../components/Pagination";
-import { allPostsSelector, fetchAllPosts } from "../../store/slices/posts";
-import "./style.css";
+} from "../../store/slices/comments"; //importing post comment from store
+import Pagination from "../../components/Pagination"; //pagination components to ease pagination on a page
+import { allPostsSelector, fetchAllPosts } from "../../store/slices/posts"; //importing from the store directory
+import "./style.css"; //importing css 
 
-/**
- *
- * @returns
+/**Begin Binding users post
+ *@description This is Users Post functional component to display the users post
+ * @returns user post data
+ * @param dispatch, postData, postComments
+ * 
  */
 const Posts = () => {
   const dispatch = useDispatch();
@@ -105,5 +112,6 @@ const Posts = () => {
     </div>
   );
 };
+/** End Binding users posts */
 
 export default Posts;

@@ -1,12 +1,18 @@
+/**
+ * @description Import needed libraries to display data on user page
+ * @author By Deji Adebayo
+ */
+//Begin Import statement
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { allAlbumsSelector, fetchAllAlbums } from "../../store/slices/albums";
-import "./style.css";
+import "./style.css"; //End Import statement
 
-/**
+/**Begin Bind User Album Data
  *
- * @returns
+ * @returns bind user album 
+ * @description this page bind user album data and   Users Album functional component to display the users album
  */
 const Albums = () => {
   const dispatch = useDispatch();
@@ -38,6 +44,6 @@ const Albums = () => {
       </ul>
     </div>
   );
-};
+}; //End user album data
 
 export default Albums;

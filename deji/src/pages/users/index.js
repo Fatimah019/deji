@@ -1,15 +1,29 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import Button from "../../components/Button";
-import CustomTable from "../../components/Table";
-import { fetchAllUsers } from "../../store/slices/user";
+/**
+ * @description Import needed libraries to display data on user page
+ * @author By Deji Adebayo
+ */
+//Begin Import statement
+import React, { useEffect } from "react"; //import useEffect from react libraries to fetch data and render it to the page
+import { useDispatch, useSelector } from "react-redux"; //import react-redux for managing the state
+import { useNavigate } from "react-router-dom"; //import use navigate from react router-dom for navigation purpose
+import Button from "../../components/Button"; //Import button component
+import CustomTable from "../../components/Table"; //import customable for binding data to the table
+import { fetchAllUsers } from "../../store/slices/user"; //End Import statement
 
+/**
+ * @description This is Users functional component to display the users from the JsonplaceHolder APi provided
+ * this was acheived with the help useEffect from react library
+ * @returns CustomTable
+ * @param useDispatch, useNavigate
+ */
 const Users = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const users = useSelector((state) => state);
 
+  /** Beginning of fetch user data into a table
+   * Fetch User data from the jsonplaceholder api and put into a table with the columns specify below
+   * */
   useEffect(() => {
     const usersData = async () => {
       await dispatch(fetchAllUsers());
@@ -133,5 +147,7 @@ const Users = () => {
     </>
   );
 };
-
+/**
+ * End of the user ddta fetch and end of the function
+ */
 export default Users;

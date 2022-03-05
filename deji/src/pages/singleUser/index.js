@@ -1,11 +1,22 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
-import Card from "../../components/Cards";
-import "./style.css";
+/**
+ * @description Import needed libraries to display data on single user page
+ * @author By Deji Adebayo
+ */
+//Begin Import statement
+import React from "react"; //import react from react library
+import { useLocation } from "react-router-dom"; //This hook returns the location object used by the react-router. 
+import Card from "../../components/Cards" //using card components;
+import "./style.css"; //End import statement.
 
+/**
+ * 
+ * @returns user details
+ * @description: This page shows a single user when the view user button is clicked from the main user(landing page)
+ * 
+ */
 const SingleUser = () => {
   const location = useLocation();
-
+//Start of data bind of the single user data when view user button is clicked from the main page
   return (
     <div className="single-user">
       <div className="user-card">
@@ -45,6 +56,6 @@ const SingleUser = () => {
       </div>
     </div>
   );
-};
+}; //End data Bind
 
 export default SingleUser;
