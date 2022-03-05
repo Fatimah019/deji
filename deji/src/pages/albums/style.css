@@ -5,7 +5,9 @@
   display: grid;
   gap: 1rem;
 }
-ul {
+
+.albums-list {
   display: grid;
   gap: 2rem;
+  margin-top: 2rem;
 }

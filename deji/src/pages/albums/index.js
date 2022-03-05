@@ -4,6 +4,10 @@ import { useParams } from "react-router-dom";
 import { allAlbumsSelector, fetchAllAlbums } from "../../store/slices/albums";
 import "./style.css";
 
+/**
+ *
+ * @returns
+ */
 const Albums = () => {
   const dispatch = useDispatch();
   const albumsData = useSelector(allAlbumsSelector);
@@ -17,19 +21,22 @@ const Albums = () => {
     allAlbumsData();
   }, [dispatch]);
   return (
-    <ul>
-      {albumsData?.isLoading
-        ? "Loading"
-        : albumsData?.albums
-            ?.filter((data) => data.userId === Number(id))
-            .map((album, index) => {
-              return (
-                <li key={album.id + index} className="albums-card">
-                  {album.title}
-                </li>
-              );
-            })}
-    </ul>
+    <div>
+      <h2>Albums</h2>
+      <ul className="albums-list">
+        {albumsData?.isLoading
+          ? "Loading"
+          : albumsData?.albums
+              ?.filter((data) => data.userId === Number(id))
+              .map((album, index) => {
+                return (
+                  <li key={album.id + index} className="albums-card">
+                    {album.title}
+                  </li>
+                );
+              })}
+      </ul>
+    </div>
   );
 };
 

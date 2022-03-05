@@ -6,9 +6,9 @@ const initialState = {
   posts: [],
 };
 
-export const fetchAllPosts = createAsyncThunk("posts/all", async () => {
+export const fetchAllPosts = createAsyncThunk("posts/all", async (userId) => {
   try {
-    const response = await getPosts();
+    const response = await getPosts(userId);
     return response.data;
   } catch (err) {
     return err;

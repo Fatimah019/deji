@@ -1,31 +1,18 @@
 import React, { useMemo } from "react";
-import { useTable, usePagination } from "react-table";
+import { useTable } from "react-table";
 import Loader from "../Loader";
 import "./style.css";
 
-const CustomTable = ({
-  columnsData,
-  tableData,
-  tablePageSize,
-  tableTotalCount,
-  currentPage,
-  loading,
-}) => {
+const CustomTable = ({ columnsData, tableData, loading }) => {
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
 
-  const tableInstance = useTable(
-    {
-      columns,
-      data,
-      initialState: { pageIndex: currentPage, pageSize: tablePageSize },
-      manualPagination: true,
-      pageCount: Math?.ceil(tableTotalCount / tablePageSize),
-    },
-    usePagination
-  );
+  const tableInstance = useTable({
+    columns,
+    data,
+  });
 
-  const { getTableProps, getTableBodyProps, headerGroups, prepareRow, page } =
+  const { getTableProps, getTableBodyProps, headerGroups, prepareRow, rows } =
     tableInstance;
 
   return (
@@ -55,7 +42,7 @@ const CustomTable = ({
               </tfoot>
             ) : (
               <tbody {...getTableBodyProps()}>
-                {page?.map((row, index) => {
+                {rows?.map((row, index) => {
                   prepareRow(row);
                   return (
                     <tr {...row?.getRowProps()} key={index}>
